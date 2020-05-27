@@ -13,6 +13,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 public class ConsumeApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(ConsumeApplication.class, args);
 	}
 }
