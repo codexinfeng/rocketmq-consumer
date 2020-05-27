@@ -1,0 +1,7 @@
+server:
+  port: 9091
+rocketmq:
+  consume:
+    name: ORDER_CREATE_CONSUME_GROUP
+  namesrv:
+    addr: 0.0.0.0:9876  
