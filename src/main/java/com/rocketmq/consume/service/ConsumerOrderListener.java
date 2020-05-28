@@ -13,7 +13,6 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerOrderly;
 import org.apache.rocketmq.common.message.MessageExt;
 
 /**
- * @author zhangxianbin
  *
  *         2020年5月28日
  */

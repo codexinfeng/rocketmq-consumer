@@ -11,7 +11,6 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.common.message.MessageExt;
 
 /**
- * @author zhangxianbin
  *
  *         2020年5月27日
  */
