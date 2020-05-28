@@ -4,4 +4,4 @@ rocketmq:
   consume:
     name: ORDER_CREATE_CONSUME_GROUP
   namesrv:
-    addr: 0.0.0.0:9876  
+    addr: 122.51.255.251:9876  

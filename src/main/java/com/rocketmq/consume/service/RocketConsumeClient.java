@@ -32,7 +32,7 @@ public class RocketConsumeClient {
 		pushConsumer = new DefaultMQPushConsumer();
 		pushConsumer.setConsumerGroup(consumeGroup);
 		pushConsumer.setNamesrvAddr(nameAddr);
-		pushConsumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_TIMESTAMP);
+		pushConsumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
 		pushConsumer.registerMessageListener(new ConsumerListener());
 		try {
 			pushConsumer.subscribe("CREATE_ORDER", "");

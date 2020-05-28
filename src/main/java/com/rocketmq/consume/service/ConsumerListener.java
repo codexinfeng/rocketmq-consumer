@@ -25,7 +25,8 @@ public class ConsumerListener implements MessageListenerConcurrently {
 			log.info("message:{}", messageExt);
 			try {
 				String consumeBody = new String(messageExt.getBody(), "UTF-8");
-				System.out.println(consumeBody);
+				log.info("thread:{},queueId:{},body:{}", Thread.currentThread().getName(), messageExt.getQueueId(),
+						consumeBody);
 			} catch (UnsupportedEncodingException e) {
 				log.error("decode message failed id:{}", messageExt.getMsgId());
 			}
