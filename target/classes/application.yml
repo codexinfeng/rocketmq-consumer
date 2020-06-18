@@ -4,4 +4,13 @@ rocketmq:
   consume:
     name: ORDER_CREATE_CONSUME_GROUP
   namesrv:
-    addr: 0.0.0.0:9876  
+    addr: 192.168.0.1:9876
+spring:
+  redis: 
+    password: *****
+    pool:
+      maxIdle: 8
+    sentinel:
+      master: mymaster
+      nodes: 192.168.0.1:26379,192.168.0.1:26380,192.168.0.1:26381
+        
