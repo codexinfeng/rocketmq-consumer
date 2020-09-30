@@ -21,41 +21,41 @@ import redis.clients.jedis.JedisPoolConfig;
  *         2020年6月18日
  */
 @Configuration
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
 public class RedisFactoryConfig {
 
-	@Value("${spring.redis.sentinel.master}")
-	private String sentinalMaster;
-	@Value("${spring.redis.password}")
-	private String password;
-	@Value("#{'${spring.redis.sentinel.nodes}'.split(',')}")
-	private List<String> sentinalNodes;
-
-	@Bean
-	@ConfigurationProperties(prefix="spring.redis")
-	public JedisPoolConfig JedisPoolConfig() {
-		JedisPoolConfig poolConfig = new JedisPoolConfig();
-		return poolConfig;
-	}
-
-	@Bean
-	public RedisSentinelConfiguration sentinelConfiguration() {
-		RedisSentinelConfiguration redisSentinelConfiguration = new RedisSentinelConfiguration();
-		redisSentinelConfiguration.setMaster(sentinalMaster);
-		Set<RedisNode> nodes = new HashSet<>();
-		sentinalNodes.forEach(serverAddr -> {
-			nodes.add(new RedisNode(serverAddr.split(":")[0], Integer.valueOf(serverAddr.split(":")[1])));
-		});
-		redisSentinelConfiguration.setSentinels(nodes);
-		redisSentinelConfiguration.setPassword(password);
-		return redisSentinelConfiguration;
-	}
-
-	@Bean
-	public JedisConnectionFactory jedisConnectionFactory(RedisSentinelConfiguration sentinelConfig,
-			JedisPoolConfig poolConfig) {
-		JedisConnectionFactory connectionFactory = new JedisConnectionFactory(sentinelConfig, poolConfig);
-		return connectionFactory;
-	}
+//	@Value("${spring.redis.sentinel.master}")
+//	private String sentinalMaster;
+//	@Value("${spring.redis.password}")
+//	private String password;
+//	@Value("#{'${spring.redis.sentinel.nodes}'.split(',')}")
+//	private List<String> sentinalNodes;
+//
+//	@Bean
+//	@ConfigurationProperties(prefix="spring.redis")
+//	public JedisPoolConfig JedisPoolConfig() {
+//		JedisPoolConfig poolConfig = new JedisPoolConfig();
+//		return poolConfig;
+//	}
+//
+//	@Bean
+//	public RedisSentinelConfiguration sentinelConfiguration() {
+//		RedisSentinelConfiguration redisSentinelConfiguration = new RedisSentinelConfiguration();
+//		redisSentinelConfiguration.setMaster(sentinalMaster);
+//		Set<RedisNode> nodes = new HashSet<>();
+//		sentinalNodes.forEach(serverAddr -> {
+//			nodes.add(new RedisNode(serverAddr.split(":")[0], Integer.valueOf(serverAddr.split(":")[1])));
+//		});
+//		redisSentinelConfiguration.setSentinels(nodes);
+//		redisSentinelConfiguration.setPassword(password);
+//		return redisSentinelConfiguration;
+//	}
+//
+//	@Bean
+//	public JedisConnectionFactory jedisConnectionFactory(RedisSentinelConfiguration sentinelConfig,
+//			JedisPoolConfig poolConfig) {
+//		JedisConnectionFactory connectionFactory = new JedisConnectionFactory(sentinelConfig, poolConfig);
+//		return connectionFactory;
+//	}
 
 }
